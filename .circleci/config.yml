@@ -14,11 +14,6 @@ test-template: &test-template
   steps:
     - checkout
 
-    # Download and cache dependencies
-    - restore_cache:
-        keys:
-          - v1-dependencies-{{ .Environment.CIRCLE_JOB }}-{{ checksum "setup.py" }}
-
     - run:
         name: install anaconda
         command: |
@@ -36,11 +31,6 @@ test-template: &test-template
           conda env create -f ci/$CIRCLE_JOB.yml
           source activate calculator
           python --version
-
-    - save_cache:
-        paths:
-          - ~/miniconda
-        key: v1-dependencies-{{ checksum "setup.py" }}
 
     - run:
         name: Run tests
