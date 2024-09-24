@@ -40,10 +40,6 @@ test-template: &test-template
           flake8 --exclude=venv* --statistics
           pytest -v --cov=calculator
 
-    - store_artifacts:
-        path: test-reports
-        destination: test-reports
-
 jobs:
   py312:
     <<: *test-template
