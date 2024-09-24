@@ -1,0 +1,9 @@
+name: calculator
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.11,<3.12
+  - coverage 
+  - flake8
+  - packaging
+  - pytest-cov
