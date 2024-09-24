@@ -28,12 +28,12 @@ test-template: &test-template
           export PATH=$HOME/miniconda/bin:$PATH
 
     - run:
-        name: Install numpy, cython, mdtraj
+        name: Install stuff
         command: |
           export PATH="$HOME/miniconda/bin:$PATH"
           conda update  --yes conda
           echo $PYTHON_VERSION
-          conda create -f ci/$PYTHON_VERSION.yml -c conda-forge
+          conda env create -f ci/$PYTHON_VERSION.yml
           source activate calculator
           python --version
 
