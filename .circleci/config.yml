@@ -13,9 +13,6 @@ test-template: &test-template
     - image: cimg/base:2021.04
   steps:
     - checkout
-    - run:
-        name: Install System Dependencies
-        command: apt-get update
 
     # Download and cache dependencies
     - restore_cache:
