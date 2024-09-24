@@ -33,7 +33,7 @@ test-template: &test-template
           export PATH="$HOME/miniconda/bin:$PATH"
           conda update  --yes conda
           echo $PYTHON_VERSION
-          conda env create -f ci/$PYTHON_VERSION.yml
+          conda env create -f ci/$CIRCLE_JOB.yml
           source activate calculator
           python --version
 
